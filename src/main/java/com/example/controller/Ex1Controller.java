@@ -43,7 +43,10 @@ public class Ex1Controller {
 	 * @return 野球チーム詳細ページ表示
 	 */
 	@RequestMapping("/show-detail")
-	public String showDetail() {
+	public String showDetail(String teamName, Model model) {
+		TeamInfo teamInfo = new TeamInfo();
+		teamInfo = service.showDetail(teamName);
+		model.addAttribute("teamInfo", teamInfo);
 		return "show-detail";
 	}
 

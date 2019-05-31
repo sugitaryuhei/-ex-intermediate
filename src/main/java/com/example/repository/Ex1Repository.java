@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.example.domain.TeamInfo;
@@ -39,7 +41,8 @@ public class Ex1Repository {
 	 * @return 野球チームの情報の一覧
 	 */
 	public List<TeamInfo> showList() {
-		String sql = "select team_name,headquarters,inauguration,history from " +tableName;
+		String sql = "select team_name,headquarters,inauguration,history from " +tableName
+		                    +" order by inauguration"; 
 		return template.query(sql, TEAMINFO_ROW_MAPPER);
 	}
 	
@@ -50,8 +53,10 @@ public class Ex1Repository {
 	 * @return 指定したチームの情報
 	 */
 	public TeamInfo showDetail(String teamName) {
-		
-		return new TeamInfo();
+		String sql = "select team_name,headquarters,inauguration,history from " +tableName + 
+						     " where team_name=:teamName";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("teamName", teamName);
+		return template.queryForObject(sql, param, TEAMINFO_ROW_MAPPER);
 	}
 	
 }

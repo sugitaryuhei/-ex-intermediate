@@ -5,15 +5,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-球団名<br>
-<span th:text="${team.teamName}"></span><br>
-本拠地<br>
-<span th:text="${team.headquaters}"></span><br>
-発足<br>
-<span th:text="${team.inauguration}"></span><br>
-歴史<br>
-<span th:text="${team.history}"></span><br>
+<strong>球団名</strong><br>
+<span th:text="${teamInfo.teamName}"></span><br>
+<strong>本拠地</strong><br>
+<span th:text="${teamInfo.headquarters}"></span><br>
+<strong>発足</strong><br>
+<span th:text="${teamInfo.inauguration}"></span><br>
+<strong>歴史</strong><br>
+<pre th:text="${teamInfo.history}"></pre><br>
 <a th:href="@{/ex1}">戻る</a>
-
 </body>
 </html>
