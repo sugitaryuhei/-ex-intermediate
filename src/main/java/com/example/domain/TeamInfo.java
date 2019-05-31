@@ -14,7 +14,7 @@ public class TeamInfo {
 	/** 本拠地 */
 	private String headquaters;
 	/** 発足 */
-	private Date inauguration;
+	private String inauguration;
 	/** 歴史 */
 	private String history;
 	
@@ -36,10 +36,10 @@ public class TeamInfo {
 	public void setHeadquaters(String headquaters) {
 		this.headquaters = headquaters;
 	}
-	public Date getInauguration() {
+	public String getInauguration() {
 		return inauguration;
 	}
-	public void setInauguration(Date inauguration) {
+	public void setInauguration(String inauguration) {
 		this.inauguration = inauguration;
 	}
 	public String getHistory() {
