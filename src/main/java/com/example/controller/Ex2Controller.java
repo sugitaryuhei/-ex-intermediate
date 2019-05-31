@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.HotelInfo;
-import com.example.service.Ex2Service;
+import com.example.service.HotelInfoService;
 
 /**
  * 演習２のアプリケーションを動かすコントローラー.
@@ -20,7 +20,7 @@ import com.example.service.Ex2Service;
 public class Ex2Controller {
 	
 	@Autowired
-	private Ex2Service service;
+	private HotelInfoService service;
 	
 	/**
 	 * ホテル検索画面を表示する.
@@ -34,14 +34,20 @@ public class Ex2Controller {
 	
 	/**
 	 * 入力された価格以下のホテルを表示する.
+	 * 入力された値がない場合は全てのホテル情報を表示する.
 	 * 
 	 * @param price 検索するための価格
 	 * @return 得られたホテル情報が表示されたホテル検索画面
 	 */
 	@RequestMapping("/search")
-	public String search(Integer price, Model model) {
-		List<HotelInfo> hotelList = service.searhByLessThanPrice(price);
+	public String search(String price, Model model) {
+		if(price == "") {			
+			List<HotelInfo> hotelList = service.searchAll();
+			model.addAttribute("hotelList", hotelList);
+		}else {
+		List<HotelInfo> hotelList = service.searhByLessThanPrice(Integer.parseInt(price));
 		model.addAttribute("hotelList", hotelList);
+		}
 		return "hotel-search";
 	}
 

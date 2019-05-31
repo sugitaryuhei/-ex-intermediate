@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.HotelInfo;
-import com.example.repository.Ex2Repository;
+import com.example.repository.HotelInfoRepository;
 
 /**
  * 演習２を操作するメソッドのサービス
@@ -16,10 +16,10 @@ import com.example.repository.Ex2Repository;
  */
 @Service
 @Transactional
-public class Ex2Service {
+public class HotelInfoService {
 	
 	@Autowired
-	private Ex2Repository repository;
+	private HotelInfoRepository repository;
 	
 	/**
 	 * 価格以下のホテル情報を取得するメソッド.
@@ -27,7 +27,19 @@ public class Ex2Service {
 	 * @return ホテル情報を価格の降順で取得
 	 */
 	public List<HotelInfo> searhByLessThanPrice(Integer price){
-		return repository.searchByLessThanPrice(price);
+		if(price<0) {
+			throw new IllegalArgumentException("価格が不正です");
+		}
+		return repository.findAllByLessThanPrice(price);
 	}
-
+	
+	/**
+	 * 全てのホテル情報を価格順に取得するメソッド.
+	 * 
+	 * @return ホテル情報を価格の降順で取得
+	 */
+	public List<HotelInfo> searchAll(){
+		return repository.findAll();
+	}
+	
 }

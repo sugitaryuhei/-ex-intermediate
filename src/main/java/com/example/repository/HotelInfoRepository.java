@@ -17,7 +17,7 @@ import com.example.domain.HotelInfo;
  * @author ryuheisugita
  */
 @Repository
-public class Ex2Repository {
+public class HotelInfoRepository {
 	
 private String tableName = "hotels";
     
@@ -37,11 +37,22 @@ private String tableName = "hotels";
 	 * 
 	 * @return ホテル情報を価格の降順で取得
 	 */
-	public List<HotelInfo> searchByLessThanPrice(Integer price) {
+	public List<HotelInfo> findAllByLessThanPrice(Integer price) {
 		String sql = "select hotel_name,nearest_station,price from " +tableName
 		                    +" where price <= :price order by price desc"; 
 		SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
 		return template.query(sql,param, HOTELINFO_ROW_MAPPER);
+	}
+	
+	/**
+	 * 全てのホテル情報を価格順に取得するメソッド.
+	 * 
+	 * @return ホテル情報を価格の降順で取得
+	 */
+	public List<HotelInfo> findAll() {
+		String sql = "select hotel_name,nearest_station,price from " +tableName
+                           +" order by price desc"; 
+		return template.query(sql, HOTELINFO_ROW_MAPPER);
 	}
 
 }
