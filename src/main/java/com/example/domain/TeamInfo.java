@@ -12,7 +12,7 @@ public class TeamInfo {
 	/** 球団名 */
 	private String teamName;
 	/** 本拠地 */
-	private String headquaters;
+	private String headquarters;
 	/** 発足 */
 	private String inauguration;
 	/** 歴史 */
@@ -20,7 +20,7 @@ public class TeamInfo {
 	
 	@Override
 	public String toString() {
-		return "TeamInfo [teamName=" + teamName + ", headquaters=" + headquaters + ", inauguration=" + inauguration
+		return "TeamInfo [teamName=" + teamName + ", headquarters=" + headquarters + ", inauguration=" + inauguration
 				+ ", history=" + history + "]";
 	}
 	
@@ -30,11 +30,11 @@ public class TeamInfo {
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
 	}
-	public String getHeadquaters() {
-		return headquaters;
+	public String getHeadquarters() {
+		return headquarters;
 	}
-	public void setHeadquaters(String headquaters) {
-		this.headquaters = headquaters;
+	public void setHeadquarters(String headquarters) {
+		this.headquarters = headquarters;
 	}
 	public String getInauguration() {
 		return inauguration;
