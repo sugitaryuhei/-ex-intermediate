@@ -29,7 +29,7 @@ public class Ex2Controller {
 	 */
 	@RequestMapping("")
 	public String index() {
-		return "hotel-seach";
+		return "hotel-search";
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class Ex2Controller {
 	public String search(Integer price, Model model) {
 		List<HotelInfo> hotelList = service.searhByLessThanPrice(price);
 		model.addAttribute("hotelList", hotelList);
-		return "hotel-seach";
+		return "hotel-search";
 	}
 
 }

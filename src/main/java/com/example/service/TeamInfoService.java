@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.TeamInfo;
-import com.example.repository.Ex1Repository;
+import com.example.repository.TeamInfoRepository;
 
 /**
  * 演習１のメソッドを操作するサービス.
@@ -16,10 +16,10 @@ import com.example.repository.Ex1Repository;
  */
 @Service
 @Transactional
-public class Ex1Service {
+public class TeamInfoService {
 	
 	@Autowired
-	private Ex1Repository repository;
+	private TeamInfoRepository repository;
 	
 	/**
 	 * 野球チームの情報を発足順に取得するメソッド.

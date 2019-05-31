@@ -1,6 +1,5 @@
 package com.example.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -10,18 +9,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.domain.TeamInfo;
-import com.example.service.Ex1Service;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Ex1ServiceTest {
+public class TeamInfoServiceTest {
 
 	@Autowired
-	private Ex1Service service;
+	private TeamInfoService service;
 
 	/**
 	 * Ex1ServiceのshowList()をテスト.

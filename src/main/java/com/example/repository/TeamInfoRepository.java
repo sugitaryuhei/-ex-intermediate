@@ -11,15 +11,13 @@ import org.springframework.stereotype.Repository;
 
 import com.example.domain.TeamInfo;
 
-import ch.qos.logback.classic.db.names.TableName;
-
 /**
  * teamsテーブルを操作するリポジトリ.
  * 
  * @author ryuheisugita
  */
 @Repository
-public class Ex1Repository {
+public class TeamInfoRepository {
 	
 	private String tableName = "teams";
     

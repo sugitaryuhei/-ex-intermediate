@@ -1,7 +1,5 @@
 package com.example.domain;
 
-import java.util.Date;
-
 /**
  * 野球チームの情報のドメイン.
  * 
